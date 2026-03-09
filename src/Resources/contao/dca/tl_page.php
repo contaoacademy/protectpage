@@ -3,7 +3,7 @@
 use Contao\Config;
 
 $GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'authRequired';
-$GLOBALS['TL_DCA']['tl_page']['subpalettes']['authRequired'] = 'auth_user,auth_pw,auth_logo';
+$GLOBALS['TL_DCA']['tl_page']['subpalettes']['authRequired'] = 'auth_pw,auth_logo';
 
 $GLOBALS['TL_DCA']['tl_page']['palettes']['root'] = str_replace(
     "{publish_legend}",
@@ -31,19 +31,11 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['authRequired'] = array(
     'sql' => "char(1) NOT NULL default ''"
 );
 
-$GLOBALS['TL_DCA']['tl_page']['fields']['auth_user'] = array(
-    'label' => &$GLOBALS['TL_LANG']['tl_page']['auth_user'],
-    'exclude' => true,
-    'inputType' => 'text',
-    'eval' => array('maxlength' => 50, 'tl_class' => 'w50', 'mandatory' => true),
-    'sql' => "varchar(50) NULL"
-);
-
 $GLOBALS['TL_DCA']['tl_page']['fields']['auth_pw'] = array(
     'label' => &$GLOBALS['TL_LANG']['tl_page']['auth_pw'],
     'exclude' => true,
     'inputType' => 'password',
-    'eval' => array('maxlength' => 255, 'tl_class' => 'w50 clr', 'mandatory' => true),
+    'eval' => array('maxlength' => 255, 'tl_class' => 'w50', 'mandatory' => true),
     'sql' => "varchar(255) NULL"
 );
 

@@ -51,10 +51,6 @@ use Contao\System;
                 <?php endif; ?>
                 <form action="" method="get">
                     <input type="hidden" name="protect_page_auth" value="1">
-                    <div class="username">
-                        <label for="username">Benutzername</label>
-                        <input type="text" id="username" name="username">
-                    </div>
                     <div class="password">
                         <label for="password">Password</label>
                         <input type="password" id="password" name="password">

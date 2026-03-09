@@ -70,13 +70,12 @@ class AuthController extends Controller
 
     protected function validate($objPage)
     {
-        $user = Input::get('username');
         $pw = Input::get('password');
         $hash = \md5($objPage->id . $objPage->auth_pw . strtotime('today'));
-        if (($user == $objPage->auth_user && \password_verify($pw, $objPage->auth_pw)) || ($_COOKIE[$hash] ?? null)) {
+        if (\password_verify($pw, $objPage->auth_pw) || ($_COOKIE[$hash] ?? null)) {
             \setcookie($hash, 1, time() + 86400);
             return true;
-        } elseif (Input::get('username') != '' && Input::get('password') != '') {
+        } elseif (Input::get('password') != '') {
             return 'wrong_data';
         } else {
             return false;
